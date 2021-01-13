@@ -9,8 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Multiply")
-@ApiOperation("Two numbers are Multiplicated")
+
 public class MultController {
     float a,b;
 

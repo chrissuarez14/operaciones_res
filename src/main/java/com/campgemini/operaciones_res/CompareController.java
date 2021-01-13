@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Compare")
-@ApiOperation("Two numbers are comparaded")
+
 public class CompareController {
 
 }

@@ -1,5 +1,6 @@
 package com.campgemini.operaciones_res;
 
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -14,30 +15,40 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Operations")
 public class Operations {
 
-    private float a,b,result;
+    private float a, b, result;
 
 
+    @RequestMapping("/Sum")
+    @ApiOperation("Two numbers are Summed")
+    @GetMapping("/{a}/{b}")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 404, message = "NOT FOUND")})
+
+    public ResponseEntity<String> makeSum(@ApiParam(value = "The first number", required = true, example = "2") @PathVariable("a") float a, @ApiParam(value = "The Second number", required = true, example = "2") @PathVariable("b") float b) {
+
+
+        return new ResponseEntity<>("The result of the Sum is  " + (a + b), HttpStatus.OK);
+    }
+
+
+    @RequestMapping("/Rest")
+    @ApiOperation("Two numbers are Substraction")
 
     @GetMapping("/{a}/{b}")
     @ApiResponses({
-            @ApiResponse(code = 200,message = "OK"),
-            @ApiResponse(code = 404,message = "NOT FOUND")    })
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 404, message = "NOT FOUND")})
+    public ResponseEntity<String> makeRest(@ApiParam(value = "The first number", required = true, example = "2") @PathVariable("a") float a, @ApiParam(value = "The second Number", required = true, example = "2") @PathVariable("b") float b) {
 
-    public ResponseEntity<String> makeSum(@ApiParam(value = "The first number",required = true,example = "2") @PathVariable("a") float a, @ApiParam(value = "The Second number",required = true,example = "2") @PathVariable("b") float b){
-        return new ResponseEntity<>("The result of the Sum is  " + (a+b), HttpStatus.OK);
+        return new ResponseEntity<>("The result of the subtraction is  " + (a - b), HttpStatus.OK);
+
     }
 
 
 
-
-
-        @GetMapping("/{a}/{b}")
-        @ApiResponses({
-                @ApiResponse(code = 200,message = "OK"),
-                @ApiResponse(code = 404,message = "NOT FOUND")    })
-        public ResponseEntity<String> makeRest(@ApiParam(value = "The first number",required = true,example = "2") @PathVariable("a") float a,@ApiParam(value = "The second Number",required = true,example = "2")  @PathVariable("b") float b) {
-            return new ResponseEntity<>("The result of the subtraction is  " + (a - b), HttpStatus.OK);
-        }
+    @RequestMapping("/Multiply")
+    @ApiOperation("Two numbers are Multiplicated")
          @GetMapping("/{a}/{b}")
          @ApiResponses({
                  @ApiResponse(code = 200,message = "OK"),
@@ -50,6 +61,9 @@ public class Operations {
 
 
 
+
+    @RequestMapping("/Compare")
+    @ApiOperation("Two numbers are comparaded")
     @GetMapping("/{a}/{b}")
     @ApiResponses({
             @ApiResponse(code = 200,message = "OK"),
@@ -58,11 +72,15 @@ public class Operations {
         if(a==b){
             return "The numbers are equals";
         }else {
-            return "The numbers aren´t not equalas";
+            return "The numbers aren´t equals";
         }
     }
 
 
+
+
+    @RequestMapping("/Division")
+    @ApiOperation("Two numbers are Divided")
     @GetMapping("/{a}/{b}")
     @ApiResponses({
             @ApiResponse(code = 200,message = "OK"),
@@ -72,3 +90,4 @@ public class Operations {
     }
 
 }
+

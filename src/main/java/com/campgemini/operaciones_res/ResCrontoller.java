@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Rest")
-@ApiOperation("Two numbers are Substraction")
+
 public class ResCrontoller {
 
 }

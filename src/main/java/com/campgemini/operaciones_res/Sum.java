@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Sum")
-@ApiOperation("Two numbers are Summed")
+
 
 public class Sum {
 

@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Division")
-@ApiOperation("Two numbers are Divided")
+
 public class DivisionController {
 
 }
